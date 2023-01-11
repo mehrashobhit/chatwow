@@ -11,19 +11,28 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-async function runCompletion () {
-const completion = await openai.createCompletion({
+async function runCompletion (query) {
+    
+return await openai.createCompletion({
     model: "text-davinci-003",
-    prompt: "write a mongoose query to fetch users with their recent chat with all other users",
+    prompt: query,
     temperature: 0.7,
     max_tokens: 256,
     top_p: 1,
     frequency_penalty: 0,
     presence_penalty: 0,
   });
-  return completion.data.choices[0].text;
+  
 }
-app.all('/', (req, res) => {
-const resp= runCompletion();
-res.send(resp)
+
+app.all('/', async(req, res) => {
+    try{
+const query=req.query.ques;
+const resp=  await runCompletion(query);
+const resp_=resp.data.choices[0].text;
+res.send({"result":resp_});
+    }
+    catch(e){
+        res.json({"result":"error","message":e.message})
+    }
 }) 
