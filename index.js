@@ -26,13 +26,13 @@ return await openai.createCompletion({
 }
 
 app.all('/', async(req, res) => {
-    try{
+try{
 const query=req.query.ques;
 const resp=  await runCompletion(query);
 const resp_=resp.data.choices[0].text;
 res.send({"result":resp_});
     }
     catch(e){
-        res.json({"result":"error","message":e.message})
+        res.json({"result":e.message})
     }
 }) 
