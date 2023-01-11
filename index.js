@@ -6,12 +6,13 @@ app.listen(process.env.PORT || 3000)
 const { Configuration, OpenAIApi } = require("openai");
 require('dotenv').config()
 
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-const openai = new OpenAIApi(configuration);
 
-async function runCompletion (query) {
+
+async function runCompletion (query,key) {
+    const configuration = new Configuration({
+        apiKey:key,
+      });
+      const openai = new OpenAIApi(configuration);
     
 return await openai.createCompletion({
     model: "text-davinci-003",
@@ -28,7 +29,8 @@ return await openai.createCompletion({
 app.all('/', async(req, res) => {
 try{
 const query=req.query.ques;
-const resp=  await runCompletion(query);
+const key=req.query.key;
+const resp=  await runCompletion(query,key);
 const resp_=resp.data.choices[0].text;
 res.send(resp_);
     }
