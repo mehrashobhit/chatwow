@@ -30,7 +30,7 @@ try{
 const query=req.query.ques;
 const resp=  await runCompletion(query);
 const resp_=resp.data.choices[0].text;
-res.send({"result":resp_});
+res.send(JSON.stringify({"result":resp_}));
     }
     catch(e){
         res.json({"result":e.message})
