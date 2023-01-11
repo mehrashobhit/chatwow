@@ -26,4 +26,4 @@ const completion = await openai.createCompletion({
 app.all('/', (req, res) => {
 const resp= runCompletion();
 res.send(resp)
-})
+}) 
