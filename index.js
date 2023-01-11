@@ -13,7 +13,7 @@ async function runCompletion (query,key) {
         apiKey:key,
       });
       const openai = new OpenAIApi(configuration);
-    
+     
 return await openai.createCompletion({
     model: "text-davinci-003",
     prompt: query,
@@ -22,7 +22,7 @@ return await openai.createCompletion({
     top_p: 1,
     frequency_penalty: 0,
     presence_penalty: 0,
-  });
+  }); 
   
 }
 
