@@ -1,11 +1,9 @@
-# starter-express-api
+# ChatWow
 
-This is the simplest possible nodejs api using express that responds to any request with: 
-```
-Yo!
-```
+Built using ChatGPT
 
-### Deploy it in 7 seconds: 
-
-[![Deploy to Cyclic](https://deploy.cyclic.app/button.svg)](https://deploy.cyclic.app/)
-
+Test here
+https://erin-cute-horse.cyclic.app/
+Request Params
+key:[your openAI API key]
+ques:[ask anything]
