@@ -6,7 +6,7 @@ app.listen(process.env.PORT || 3000)
 const { Configuration, OpenAIApi } = require("openai");
 require('dotenv').config()
 
-
+ 
 
 async function runCompletion (query,key) {
     const configuration = new Configuration({

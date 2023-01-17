@@ -19,6 +19,8 @@
   "dependencies": {
     "dotenv": "^16.0.3",
     "express": "^4.17.1",
-    "openai": "^3.1.0"
+    "mongodb": "^4.13.0",
+    "openai": "^3.1.0",
+    "shopify-api-node": "^3.12.1"
   }
 }
