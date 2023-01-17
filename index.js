@@ -10,7 +10,7 @@ require('dotenv').config()
 
 async function runCompletion (query,key) {
     const configuration = new Configuration({
-        apiKey:key,
+        apiKey:process.env.OPENAI_API_KEY,
       });
       const openai = new OpenAIApi(configuration);
      
