@@ -8,7 +8,7 @@ require('dotenv').config()
 
  
 
-async function runCompletion (query,key) {
+async function runCompletion (query) {
     const configuration = new Configuration({
         apiKey:process.env.OPENAI_API_KEY,
       });
@@ -37,10 +37,9 @@ app.all('/', async(req, res) => {
 
 try{
 const query=req.query.ques;
-const key=req.query.key;
-const resp=  await runCompletion(query,key);
+const resp=  await runCompletion(query);
 const resp_=resp.data.choices[0].text;
-res.send(resp_);
+res.json({"response":resp_});
     }
     catch(e){
         res.json({"result":e.message})
