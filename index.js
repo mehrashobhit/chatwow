@@ -18,7 +18,7 @@ return await openai.createCompletion({
     model: "text-davinci-003",
     prompt: query,
     temperature: 0.7,
-    max_tokens: 256,
+    max_tokens: 4000,
     top_p: 1,
     frequency_penalty: 0,
     presence_penalty: 0,
